@@ -10,4 +10,4 @@ script/source = "extends Node2D
 script = SubResource("GDScript_m5e57")
 
 [node name="Player2d" parent="." unique_id=958581137 instance=ExtResource("1_88nqe")]
-position = Vector2(146, 251)
+position = Vector2(179, 130)
