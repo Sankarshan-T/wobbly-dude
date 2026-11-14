@@ -11,13 +11,13 @@ config_version=5
 [application]
 
 config/name="WobblyDude"
-config/features=PackedStringArray("4.6", "Forward Plus")
+config/features=PackedStringArray("4.7", "Forward Plus")
 config/icon="res://icon.svg"
 
 [autoload]
 
-SceneManager="*uid://dctax61uwbroq"
 GameState="*uid://3k1ietevowit"
+SceneManager="*uid://dctax61uwbroq"
 
 [input]
 

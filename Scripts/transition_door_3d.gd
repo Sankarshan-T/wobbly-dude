@@ -46,7 +46,7 @@ func _on_body_entered(body: Node3D) -> void:
 	_update_lock_status()
 
 	if not is_unlocked:
-		print("this door is currently locked.")
+		print("this door is currently locked! :(")
 		return
 
 	if body is CharacterBody3D:

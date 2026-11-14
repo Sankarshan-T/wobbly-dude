@@ -1,10 +1,10 @@
 [gd_scene format=3 uid="uid://dctax61uwbroq"]
 
-[ext_resource type="Script" uid="uid://pcg8swrtlpgw" path="res://scripts/SCENE_MANAGER.gd" id="1_g58rr"]
+[ext_resource type="Script" uid="uid://dtup1qwljdakg" path="res://Scripts/SCENE_MANAGER.gd" id="1_yueht"]
 
 [node name="SceneManager" type="CanvasLayer" unique_id=1162742273]
 layer = 128
-script = ExtResource("1_g58rr")
+script = ExtResource("1_yueht")
 
 [node name="ColorRect" type="ColorRect" parent="." unique_id=1758483430]
 modulate = Color(1, 1, 1, 0)

@@ -28,6 +28,7 @@ cellular_distance_function = 1
 [sub_resource type="NoiseTexture2D" id="NoiseTexture2D_aq0jg"]
 noise = SubResource("FastNoiseLite_ym5pb")
 seamless = true
+seamless_blend_skirt = 1.0
 
 [sub_resource type="VisualShaderNodeTexture" id="VisualShaderNodeTexture_8qltu"]
 texture = SubResource("NoiseTexture2D_aq0jg")
@@ -52,6 +53,7 @@ cellular_distance_function = 1
 [sub_resource type="NoiseTexture2D" id="NoiseTexture2D_ufc6s"]
 noise = SubResource("FastNoiseLite_lsb3u")
 seamless = true
+seamless_blend_skirt = 1.0
 
 [sub_resource type="VisualShaderNodeTexture" id="VisualShaderNodeTexture_14qbr"]
 texture = SubResource("NoiseTexture2D_ufc6s")
