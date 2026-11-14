@@ -1,0 +1,13 @@
+[gd_scene format=3 uid="uid://c0o6ahjwrgc7m"]
+
+[ext_resource type="PackedScene" uid="uid://bco8r3no071ru" path="res://Scenes/2d/player_2d.tscn" id="1_88nqe"]
+
+[sub_resource type="GDScript" id="GDScript_m5e57"]
+script/source = "extends Node2D
+"
+
+[node name="level1" type="Node2D" unique_id=1892345204]
+script = SubResource("GDScript_m5e57")
+
+[node name="Player2d" parent="." unique_id=958581137 instance=ExtResource("1_88nqe")]
+position = Vector2(146, 251)

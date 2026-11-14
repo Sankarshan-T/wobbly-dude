@@ -1,9 +1,0 @@
-[gd_scene format=3 uid="uid://c0o6ahjwrgc7m"]
-
-[sub_resource type="GDScript" id="GDScript_m5e57"]
-script/source = "extends Node2D
-
-"
-
-[node name="Game-2d" type="Node2D" unique_id=1892345204]
-script = SubResource("GDScript_m5e57")
