@@ -18,11 +18,10 @@ constant = 0.8
 [sub_resource type="VisualShaderNodeColorParameter" id="VisualShaderNodeColorParameter_8qltu"]
 parameter_name = "ColorParameter"
 default_value_enabled = true
-default_value = Color(0.12089237, 0.61619914, 0.8019137, 1)
+default_value = Color(0, 0.26666668, 0.53333336, 1)
 
 [sub_resource type="FastNoiseLite" id="FastNoiseLite_ym5pb"]
 noise_type = 2
-frequency = 0.009
 fractal_type = 0
 cellular_distance_function = 1
 
@@ -34,6 +33,7 @@ seamless = true
 texture = SubResource("NoiseTexture2D_aq0jg")
 
 [sub_resource type="VisualShaderNodeVectorOp" id="VisualShaderNodeVectorOp_aq0jg"]
+output_port_for_preview = 0
 default_input_values = [0, Quaternion(0, 0, 0, 0), 1, Quaternion(0, 0, 0, 0)]
 op_type = 2
 
@@ -88,4 +88,4 @@ nodes/fragment/12/node = SubResource("VisualShaderNodeFloatConstant_72wxp")
 nodes/fragment/12/position = Vector2(120, 280)
 nodes/fragment/13/node = SubResource("VisualShaderNodeFloatConstant_xvbxg")
 nodes/fragment/13/position = Vector2(140, 400)
-nodes/fragment/connections = PackedInt32Array(2, 0, 4, 0, 4, 0, 0, 0, 5, 0, 3, 0, 6, 0, 5, 2, 9, 0, 7, 0, 8, 0, 9, 2, 3, 0, 10, 0, 7, 0, 10, 1, 10, 0, 11, 0, 11, 0, 4, 1, 12, 0, 0, 1, 13, 0, 0, 3, 4, 0, 0, 5)
+nodes/fragment/connections = PackedInt32Array(2, 0, 4, 0, 3, 0, 4, 1, 4, 0, 0, 0, 5, 0, 3, 0, 6, 0, 5, 2, 9, 0, 7, 0, 8, 0, 9, 2, 3, 0, 10, 0, 7, 0, 10, 1, 10, 0, 11, 0, 11, 0, 4, 1, 12, 0, 0, 1, 13, 0, 0, 3, 4, 0, 0, 5)
