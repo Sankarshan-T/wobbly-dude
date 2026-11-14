@@ -1,11 +1,17 @@
 [gd_scene format=3 uid="uid://byng6bsq6gocw"]
 
 [ext_resource type="PackedScene" uid="uid://bhjiqhea24huf" path="res://Scenes/3d/player_3d.tscn" id="1_j6hnj"]
+[ext_resource type="Shader" uid="uid://b600p75uc53lu" path="res://Assets/Water.tres" id="2_8bhny"]
 [ext_resource type="Texture2D" uid="uid://diwkppbmm40wb" path="res://Assets/skybox-day.png" id="2_tlpjj"]
 [ext_resource type="MeshLibrary" uid="uid://cqtbovkus1imf" path="res://Assets/GridMapv2.tres" id="3_tlpjj"]
 [ext_resource type="PackedScene" uid="uid://fiay0bhgdx3y" path="res://Scenes/3d/transition_door_3d.tscn" id="4_2ajlw"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_1ws86"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_kfy7m"]
+render_priority = 0
+shader = ExtResource("2_8bhny")
+shader_parameter/ColorParameter = Color(0, 0.266667, 0.533333, 1)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_1ws86"]
 
@@ -33,6 +39,7 @@ data = {
 [node name="MeshInstance3D" type="MeshInstance3D" parent="StaticBody3D" unique_id=904951609]
 transform = Transform3D(100, 0, 0, 0, 1, 0, 0, 0, 100, 0, -1.3321023, 0)
 mesh = SubResource("BoxMesh_1ws86")
+surface_material_override/0 = SubResource("ShaderMaterial_kfy7m")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D" unique_id=1386994987]
 transform = Transform3D(100, 0, 0, 0, 1, 0, 0, 0, 100, 0, 0, 0)
