@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://byng6bsq6gocw"]
 
 [ext_resource type="PackedScene" uid="uid://bhjiqhea24huf" path="res://Scenes/3d/player_3d.tscn" id="1_4e0x8"]
+[ext_resource type="Script" uid="uid://bnlooctod8f6b" path="res://Scripts/player_3d.gd" id="2_nt1gx"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_1ws86"]
 
@@ -30,6 +31,7 @@ sky = SubResource("Sky_4e0x8")
 
 [node name="Player" parent="." unique_id=1382351726 instance=ExtResource("1_4e0x8")]
 transform = Transform3D(-0.2767974, 0, 0.9609283, 0, 1, 0, -0.9609283, 0, -0.2767974, 0, 0, 0)
+script = ExtResource("2_nt1gx")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="." unique_id=205856448]
 

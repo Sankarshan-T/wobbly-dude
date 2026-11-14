@@ -1,0 +1,32 @@
+[gd_resource type="VisualShader" format=3 uid="uid://b600p75uc53lu"]
+
+[sub_resource type="VisualShaderNodeColorParameter" id="VisualShaderNodeColorParameter_8qltu"]
+parameter_name = "ColorParameter"
+default_value_enabled = true
+default_value = Color(0, 0.26666668, 0.53333336, 1)
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_ym5pb"]
+noise_type = 2
+fractal_type = 0
+cellular_distance_function = 1
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_aq0jg"]
+noise = SubResource("FastNoiseLite_ym5pb")
+seamless = true
+
+[sub_resource type="VisualShaderNodeTexture" id="VisualShaderNodeTexture_8qltu"]
+texture = SubResource("NoiseTexture2D_aq0jg")
+
+[sub_resource type="VisualShaderNodeVectorOp" id="VisualShaderNodeVectorOp_aq0jg"]
+output_port_for_preview = 0
+default_input_values = [0, Quaternion(0, 0, 0, 0), 1, Quaternion(0, 0, 0, 0)]
+op_type = 2
+
+[resource]
+nodes/fragment/2/node = SubResource("VisualShaderNodeColorParameter_8qltu")
+nodes/fragment/2/position = Vector2(-180, 160)
+nodes/fragment/3/node = SubResource("VisualShaderNodeTexture_8qltu")
+nodes/fragment/3/position = Vector2(-180, 400)
+nodes/fragment/4/node = SubResource("VisualShaderNodeVectorOp_aq0jg")
+nodes/fragment/4/position = Vector2(180, 420)
+nodes/fragment/connections = PackedInt32Array(2, 0, 4, 0, 3, 0, 4, 1, 4, 0, 0, 0)
