@@ -1,4 +1,4 @@
-[gd_scene format=3 uid="uid://byng6bsq6gocw"]
+[gd_scene format=3 uid="uid://bdh3q1itmgl2w"]
 
 [ext_resource type="PackedScene" uid="uid://bhjiqhea24huf" path="res://Scenes/3d/player_3d.tscn" id="1_j6hnj"]
 [ext_resource type="Texture2D" uid="uid://diwkppbmm40wb" path="res://Assets/skybox-day.png" id="2_tlpjj"]
