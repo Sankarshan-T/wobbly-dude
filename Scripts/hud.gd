@@ -1,12 +1,9 @@
 extends CanvasLayer
-## Minimal HUD that works in both the 3D and 2D scenes: health, scrap counter,
-## level timer, a "pursued" warning and a death banner. Builds itself in code.
 
 var _health_bar: ProgressBar
 var _health_label: Label
 var _collect_label: Label
 var _time_label: Label
-var _stalker_label: Label
 var _death_label: Label
 
 var _elapsed := 0.0
@@ -18,13 +15,10 @@ func _ready() -> void:
 
 	GameState.health_changed.connect(_on_health_changed)
 	GameState.collectible_count_changed.connect(_on_collectibles_changed)
-	GameState.stalker_activated.connect(_on_stalker_activated)
 	GameState.player_died.connect(_on_player_died)
 
 	_on_health_changed(GameState.current_health, GameState.max_health)
 	_on_collectibles_changed(GameState.collectibles)
-	if GameState.stalker_active:
-		_on_stalker_activated()
 
 
 func _process(delta: float) -> void:
@@ -72,15 +66,6 @@ func _build_ui() -> void:
 	_time_label.text = "TIME 00:00.0"
 	box.add_child(_time_label)
 
-	_stalker_label = Label.new()
-	_stalker_label.text = "!! PURSUED !!"
-	_stalker_label.add_theme_color_override("font_color", Color(1.0, 0.25, 0.25))
-	_stalker_label.add_theme_font_size_override("font_size", 22)
-	_stalker_label.set_anchors_and_offsets_preset(Control.PRESET_CENTER_TOP)
-	_stalker_label.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
-	_stalker_label.visible = false
-	add_child(_stalker_label)
-
 	_death_label = Label.new()
 	_death_label.text = "You Died"
 	_death_label.add_theme_font_size_override("font_size", 40)
@@ -105,10 +90,6 @@ func _on_health_changed(current_health: int, max_health: int) -> void:
 
 func _on_collectibles_changed(count: int) -> void:
 	_collect_label.text = "Scrap: %d" % count
-
-
-func _on_stalker_activated() -> void:
-	_stalker_label.visible = true
 
 
 func _on_player_died() -> void:

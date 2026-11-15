@@ -42,8 +42,7 @@ _data = {
 &"open-and-close": SubResource("Animation_gkbrd")
 }
 
-[sub_resource type="QuadMesh" id="QuadMesh_fpef5"]
-size = Vector2(2, 2)
+[sub_resource type="QuadMesh" id="QuadMesh_16ru6"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_16ru6"]
 render_priority = 0
@@ -61,8 +60,8 @@ shader_parameter/vortex_radius = 0.5
 shader_parameter/edge_softness = 0.1
 shader_parameter/glow_strength = 2.0
 
-[sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_fpef5"]
-data = PackedVector3Array(1, -1, 0, -1, -1, 0, 1, 1, 0, -1, -1, 0, -1, 1, 0, 1, 1, 0)
+[sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_23fbk"]
+data = PackedVector3Array(0.5, -0.5, 0, -0.5, -0.5, 0, 0.5, 0.5, 0, -0.5, -0.5, 0, -0.5, 0.5, 0, 0.5, 0.5, 0)
 
 [node name="TransitionDoor3D" type="Area3D" unique_id=604576818]
 script = ExtResource("1_vxfqo")
@@ -74,13 +73,13 @@ libraries/ = SubResource("AnimationLibrary_bdv8o")
 [node name="OmniLight3D" type="OmniLight3D" parent="." unique_id=1398003687]
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=493685949]
-transform = Transform3D(-4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0, 0, 1, 0, 0, 0)
-mesh = SubResource("QuadMesh_fpef5")
+transform = Transform3D(-8.742278e-08, -2, 0, 2, -8.742278e-08, 0, 0, 0, 2, 0, 0, 0)
+mesh = SubResource("QuadMesh_16ru6")
 surface_material_override/0 = SubResource("ShaderMaterial_16ru6")
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=67965453]
-transform = Transform3D(-4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0, 0, 1, 0, 0, 0)
-shape = SubResource("ConcavePolygonShape3D_fpef5")
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=337889927]
+transform = Transform3D(-8.742278e-08, -2, 0, 2, -8.742278e-08, 0, 0, 0, 2, 0, 0, 0)
+shape = SubResource("ConcavePolygonShape3D_23fbk")
 
 [node name="Label3D" type="Label3D" parent="." unique_id=1654867186]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.2753843, 0)
