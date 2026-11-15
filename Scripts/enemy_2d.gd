@@ -1,7 +1,7 @@
 class_name Enemy2D
 extends CharacterBody2D
 ## Hostile drone for the 2D levels.
-## Our hostile ron, also deals contact damage, it works 
+## Our hostile drone, also deals contact damage, it works 
 ## We make it wander around it;s spwan point if the player is far
 ## And chases the player once we enter 
 ## The player can damage and kill the drone using his mouse
@@ -13,14 +13,14 @@ signal health_changed(current_health: int, max_health: int)
 enum State { PATROL, CHASE, DEAD }
 
 @export_group("Stats")
-@export var max_health: int = 30
-@export var move_speed: float = 55.0
-@export var chase_speed: float = 100.0
+@export var max_health: int = 25
+@export var move_speed: float = 70.0
+@export var chase_speed: float = 140.0
 
 @export_group("Combat")
-@export var contact_damage: int = 10
+@export var contact_damage: int = 20
 ## Must be larger than the sum of the two collision radius cuz the enemy wont be able to hit 
-@export var attack_range: float = 48.0
+@export var attack_range: float = 50.0
 @export var attack_cooldown: float = 0.9
 @export var knockback_force: float = 260.0
 @export var knockback_decay: float = 9.0
@@ -29,8 +29,8 @@ enum State { PATROL, CHASE, DEAD }
 @export var wall_bounce_time: float = 0.4
 
 @export_group("Detection")
-@export var detect_radius: float = 200.0
-@export var lose_radius: float = 340.0
+@export var detect_radius: float = 300.0
+@export var lose_radius: float = 320.0
 ## Relentless pursuer mode: ignore detection range and never give up the chase.
 @export var always_aggro: bool = false
 
