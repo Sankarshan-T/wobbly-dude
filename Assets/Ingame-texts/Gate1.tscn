@@ -1,11 +1,13 @@
 [gd_scene format=3 uid="uid://cyuqynwur3c02"]
 
-[ext_resource type="Script" uid="uid://dcebrmig5dmnu" path="res://sub_viewport.gd" id="1_erlc6"]
+[ext_resource type="Script" uid="uid://y7x1tyjubfq1" path="res://sub_viewport.gd" id="1_erlc6"]
+[ext_resource type="FontFile" uid="uid://dg6f8c0e12t04" path="res://Assets/Dimbo Regular.ttf" id="2_w4dkq"]
 
 [sub_resource type="ViewportTexture" id="ViewportTexture_vfa6w"]
 viewport_path = NodePath("SubViewport")
 
 [sub_resource type="LabelSettings" id="LabelSettings_fs47j"]
+font = ExtResource("2_w4dkq")
 font_size = 41
 
 [node name="Gate1" type="Sprite3D" unique_id=1593168089]
@@ -21,5 +23,7 @@ script = ExtResource("1_erlc6")
 [node name="Label" type="Label" parent="SubViewport" unique_id=1409925532]
 offset_right = 40.0
 offset_bottom = 23.0
-text = "Enter the gate"
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("2_w4dkq")
+text = "Enter the vortex"
 label_settings = SubResource("LabelSettings_fs47j")

@@ -124,10 +124,7 @@ normal_texture = SubResource("ImageTexture_wnta2")
 mesh_list = Array[Terrain3DMeshAsset]([SubResource("Terrain3DMeshAsset_pcuiq"), SubResource("Terrain3DMeshAsset_bi620"), SubResource("Terrain3DMeshAsset_b2oqg")])
 texture_list = Array[Terrain3DTextureAsset]([SubResource("Terrain3DTextureAsset_qi8tj")])
 
-[sub_resource type="ViewportTexture" id="ViewportTexture_wnta2"]
-viewport_path = NodePath("SubViewport")
-
-[sub_resource type="ViewportTexture" id="ViewportTexture_b2oqg"]
+[sub_resource type="ViewportTexture" id="ViewportTexture_bi620"]
 viewport_path = NodePath("SubViewport")
 
 [node name="Game" type="Node3D" unique_id=966537943]
@@ -143,7 +140,7 @@ light_color = Color(0.6028429, 0.6028429, 0.602843, 1)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -11, 21.220257, -16.909542)
 
 [node name="TransitionDoor3D" parent="." unique_id=604576818 instance=ExtResource("4_2ajlw")]
-transform = Transform3D(-0.7917037, 0, 0.6109053, 0, 1, 0, -0.6109053, 0, -0.7917037, 82.72995, 1.5367837, -4.9390106)
+transform = Transform3D(0.44363424, 0, 0.896208, 0, 1, 0, -0.896208, 0, 0.44363424, 82.72995, 2.8073387, -5.631554)
 target_scene = "uid://c0o6ahjwrgc7m"
 
 [node name="Terrain3D" type="Terrain3D" parent="." unique_id=685355297]
@@ -157,12 +154,10 @@ metadata/_edit_lock_ = true
 [node name="Welcome" parent="." unique_id=1593168089 instance=ExtResource("6_kfy7m")]
 transform = Transform3D(10, 0, 0, 0, 10, 0, 0, 0, 10, 59, 23, 1)
 modulate = Color(0, 0, 0, 1)
-texture = SubResource("ViewportTexture_wnta2")
+texture = SubResource("ViewportTexture_bi620")
 
 [node name="Gate1" parent="." unique_id=1416059304 instance=ExtResource("7_ax3ex")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 84, 0.5, -4.9)
-modulate = Color(0, 0, 0, 1)
-texture = SubResource("ViewportTexture_b2oqg")
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 82.00436, 1.571598, -5.563851)
 
 [node name="Bush_Common" parent="." unique_id=1484145304 instance=ExtResource("8_s4mx3")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5, 15, -6)
