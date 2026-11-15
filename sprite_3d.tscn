@@ -1,0 +1,25 @@
+[gd_scene format=3 uid="uid://cd6cku2le65td"]
+
+[ext_resource type="Script" uid="uid://dcebrmig5dmnu" path="res://sub_viewport.gd" id="1_7s03t"]
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_vfa6w"]
+viewport_path = NodePath("SubViewport")
+
+[sub_resource type="LabelSettings" id="LabelSettings_fs47j"]
+font_size = 41
+
+[node name="Sprite3D" type="Sprite3D" unique_id=1593168089]
+billboard = 1
+texture = SubResource("ViewportTexture_vfa6w")
+
+[node name="SubViewport" type="SubViewport" parent="." unique_id=1707590593]
+own_world_3d = true
+transparent_bg = true
+scaling_3d_scale = 0.943
+script = ExtResource("1_7s03t")
+
+[node name="Label" type="Label" parent="SubViewport" unique_id=1409925532]
+offset_right = 40.0
+offset_bottom = 23.0
+text = "~WELCOME PLAYER!"
+label_settings = SubResource("LabelSettings_fs47j")
