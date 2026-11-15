@@ -1,17 +1,84 @@
 [gd_scene format=3 uid="uid://bco8r3no071ru"]
 
-[ext_resource type="Script" path="res://Scripts/player_2d.gd" id="1_rcs6s"]
-[ext_resource type="Texture2D" uid="uid://4q335xxs2p" path="res://icon.svg" id="2_ou0u6"]
+[ext_resource type="Script" uid="uid://dc3afh8makj0f" path="res://Scripts/player_2d.gd" id="1_rcs6s"]
+[ext_resource type="Texture2D" uid="uid://yjlqixd43n45" path="res://Assets/Robot/drone_shadow.png" id="2_31xdg"]
+[ext_resource type="Texture2D" uid="uid://es66e4eqwgx4" path="res://Assets/Robot/mine_drone_activated.png" id="2_d3fcy"]
+[ext_resource type="Texture2D" uid="uid://bqbuyk12ogptm" path="res://Assets/Robot/mine_drone_idle.png" id="2_ou0u6"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_d3fcy"]
-size = Vector2(68, 68)
+[sub_resource type="CircleShape2D" id="CircleShape2D_d3fcy"]
+radius = 7.0
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mp4jt"]
+atlas = ExtResource("2_d3fcy")
+region = Rect2(0, 0, 16, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0gn5u"]
+atlas = ExtResource("2_d3fcy")
+region = Rect2(16, 0, 16, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_d3fcy"]
+atlas = ExtResource("2_ou0u6")
+region = Rect2(0, 0, 16, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_31xdg"]
+atlas = ExtResource("2_ou0u6")
+region = Rect2(16, 0, 16, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_u0j3k"]
+atlas = ExtResource("2_ou0u6")
+region = Rect2(32, 0, 16, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_mp4jt"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mp4jt")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0gn5u")
+}],
+"loop": true,
+"name": &"active",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_d3fcy")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_31xdg")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_u0j3k")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}]
 
 [node name="Player2d" type="CharacterBody2D" unique_id=958581137]
 script = ExtResource("1_rcs6s")
 
-[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1131787222]
-scale = Vector2(0.52734375, 0.52734375)
-texture = ExtResource("2_ou0u6")
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1389716963]
+position = Vector2(0, -5)
+scale = Vector2(3, 3)
+shape = SubResource("CircleShape2D_d3fcy")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=848828340]
-shape = SubResource("RectangleShape2D_d3fcy")
+[node name="shadow" type="Sprite2D" parent="." unique_id=1592593426]
+scale = Vector2(3, 3)
+texture = ExtResource("2_31xdg")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=69913475]
+texture_filter = 1
+scale = Vector2(3, 3)
+sprite_frames = SubResource("SpriteFrames_mp4jt")
+animation = &"idle"
+autoplay = "idle"
+frame_progress = 0.0781334
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=778360696]
+position_smoothing_enabled = true
+drag_horizontal_enabled = true
+drag_vertical_enabled = true
+drag_horizontal_offset = 0.1
+drag_vertical_offset = 0.2
