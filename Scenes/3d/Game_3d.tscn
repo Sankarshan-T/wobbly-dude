@@ -1,22 +1,22 @@
-[gd_scene format=3 uid="uid://dxmkbpwkouk3i"]
+[gd_scene format=3 uid="uid://byng6bsq6gocw"]
 
-[ext_resource type="Texture2D" uid="uid://diwkppbmm40wb" path="res://Assets/skybox-day.png" id="1_ygtd7"]
+[ext_resource type="Texture2D" uid="uid://los78qbt8asi" path="res://Assets/skybox-night.png" id="1_bi620"]
 [ext_resource type="PackedScene" uid="uid://bhjiqhea24huf" path="res://Scenes/3d/player_3d.tscn" id="2_vtqhb"]
 [ext_resource type="PackedScene" uid="uid://fiay0bhgdx3y" path="res://Scenes/3d/transition_door_3d.tscn" id="3_feucj"]
 [ext_resource type="Texture2D" uid="uid://bxnadcnde2tnl" path="res://Assets/5bd42b344f7de_thumb900.webp" id="4_4nf88"]
-[ext_resource type="PackedScene" uid="uid://bf1oucvlfvtya" path="res://Ingame-texts/Welcome.tscn" id="5_pped1"]
-[ext_resource type="PackedScene" uid="uid://cyuqynwur3c02" path="res://Ingame-texts/Gate1.tscn" id="6_1bedq"]
-[ext_resource type="PackedScene" uid="uid://dexx1qwkcrod3" path="res://FBX/Bush_Common.fbx" id="7_xs7bg"]
-[ext_resource type="PackedScene" uid="uid://dyjsnc3sfqdsu" path="res://FBX/Clover_1.fbx" id="8_7h8l7"]
-[ext_resource type="PackedScene" uid="uid://dd81cxsyxbnqw" path="res://FBX/CommonTree_1.fbx" id="9_qr8nh"]
-[ext_resource type="PackedScene" uid="uid://bpr48lqv5mkil" path="res://FBX/DeadTree_2.fbx" id="10_tacbx"]
-[ext_resource type="PackedScene" uid="uid://cw41ir2mluwf3" path="res://FBX/Fern_1.fbx" id="11_pcab6"]
-[ext_resource type="PackedScene" uid="uid://dl0n1pih7qx3j" path="res://FBX/Flower_3_Group.fbx" id="12_ky0hk"]
+[ext_resource type="PackedScene" uid="uid://iygj0n0ncyq8" path="res://gate_1.tscn" id="5_b2oqg"]
+[ext_resource type="PackedScene" uid="uid://bf1oucvlfvtya" path="res://Assets/Ingame-texts/Welcome.tscn" id="5_pped1"]
+[ext_resource type="PackedScene" uid="uid://dexx1qwkcrod3" path="res://Assets/FBX/Bush_Common.fbx" id="7_xs7bg"]
+[ext_resource type="PackedScene" uid="uid://dyjsnc3sfqdsu" path="res://Assets/FBX/Clover_1.fbx" id="8_7h8l7"]
+[ext_resource type="PackedScene" uid="uid://dd81cxsyxbnqw" path="res://Assets/FBX/CommonTree_1.fbx" id="9_qr8nh"]
+[ext_resource type="PackedScene" uid="uid://bpr48lqv5mkil" path="res://Assets/FBX/DeadTree_2.fbx" id="10_tacbx"]
+[ext_resource type="PackedScene" uid="uid://cw41ir2mluwf3" path="res://Assets/FBX/Fern_1.fbx" id="11_pcab6"]
+[ext_resource type="PackedScene" uid="uid://dl0n1pih7qx3j" path="res://Assets/FBX/Flower_3_Group.fbx" id="12_ky0hk"]
 [ext_resource type="PackedScene" uid="uid://bg0fdgv8l7jss" path="res://Scenes/3d/enemy_3d.tscn" id="13_0o3c3"]
 [ext_resource type="Script" uid="uid://dii3uy3l62hdy" path="res://Scripts/hud.gd" id="14_v1are"]
 
 [sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_ljnko"]
-panorama = ExtResource("1_ygtd7")
+panorama = ExtResource("1_bi620")
 
 [sub_resource type="Sky" id="Sky_4e0x8"]
 sky_material = SubResource("PanoramaSkyMaterial_ljnko")
@@ -24,6 +24,9 @@ sky_material = SubResource("PanoramaSkyMaterial_ljnko")
 [sub_resource type="Environment" id="Environment_1ws86"]
 background_mode = 2
 sky = SubResource("Sky_4e0x8")
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_b2oqg"]
+viewport_path = NodePath("SubViewport")
 
 [sub_resource type="Terrain3DMaterial" id="Terrain3DMaterial_8bhny"]
 _shader_parameters = {
@@ -126,10 +129,7 @@ normal_texture = SubResource("ImageTexture_wnta2")
 mesh_list = Array[Terrain3DMeshAsset]([SubResource("Terrain3DMeshAsset_pcuiq"), SubResource("Terrain3DMeshAsset_bi620"), SubResource("Terrain3DMeshAsset_b2oqg")])
 texture_list = Array[Terrain3DTextureAsset]([SubResource("Terrain3DTextureAsset_qi8tj")])
 
-[sub_resource type="ViewportTexture" id="ViewportTexture_b2oqg"]
-viewport_path = NodePath("SubViewport")
-
-[sub_resource type="ViewportTexture" id="ViewportTexture_qi8tj"]
+[sub_resource type="ViewportTexture" id="ViewportTexture_firns"]
 viewport_path = NodePath("SubViewport")
 
 [node name="Game" type="Node3D" unique_id=966537943]
@@ -139,13 +139,18 @@ environment = SubResource("Environment_1ws86")
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=1405641260]
 transform = Transform3D(0.89689636, 0.44224077, 6.589901e-09, -0.08628218, 0.17498653, 0.9807829, 0.43374217, -0.87966067, 0.19510227, 0, 59.907803, 0)
+light_color = Color(0.38928655, 0.38928664, 0.38928658, 1)
 
 [node name="Player" parent="." unique_id=1382351726 instance=ExtResource("2_vtqhb")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -11, 21.220257, -16.909542)
 
 [node name="TransitionDoor3D" parent="." unique_id=604576818 instance=ExtResource("3_feucj")]
-transform = Transform3D(-0.7917037, 0, 0.6109053, 0, 1, 0, -0.6109053, 0, -0.7917037, 82.72995, 1.5367837, -4.9390106)
+transform = Transform3D(-0.11065388, 0, 0.993859, 0, 1, 0, -0.993859, 0, -0.11065388, 82.48079, 2.617041, -5.6405373)
 target_scene = "uid://c0o6ahjwrgc7m"
+
+[node name="Gate1" parent="." unique_id=1593168089 instance=ExtResource("5_b2oqg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 82.20895, 1.8880453, -5.632164)
+texture = SubResource("ViewportTexture_b2oqg")
 
 [node name="Terrain3D" type="Terrain3D" parent="." unique_id=685355297]
 data_directory = "res://Assets/terrain_data"
@@ -155,15 +160,10 @@ displacement_sharpness = 0.5
 top_level = true
 metadata/_edit_lock_ = true
 
-[node name="Welcome" parent="." unique_id=1593168089 instance=ExtResource("5_pped1")]
+[node name="Welcome" parent="." unique_id=1048227573 instance=ExtResource("5_pped1")]
 transform = Transform3D(10, 0, 0, 0, 10, 0, 0, 0, 10, 59, 23, 1)
 modulate = Color(0, 0, 0, 1)
-texture = SubResource("ViewportTexture_b2oqg")
-
-[node name="Gate1" parent="." unique_id=1416059304 instance=ExtResource("6_1bedq")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 84, 0.5, -4.9)
-modulate = Color(0, 0, 0, 1)
-texture = SubResource("ViewportTexture_qi8tj")
+texture = SubResource("ViewportTexture_firns")
 
 [node name="Bush_Common" parent="." unique_id=2024407014 instance=ExtResource("7_xs7bg")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5, 15, -6)

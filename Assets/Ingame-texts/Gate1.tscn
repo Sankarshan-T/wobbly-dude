@@ -21,8 +21,8 @@ scaling_3d_scale = 0.943
 script = ExtResource("1_erlc6")
 
 [node name="Label" type="Label" parent="SubViewport" unique_id=1409925532]
-offset_right = 40.0
-offset_bottom = 23.0
+offset_right = 224.0
+offset_bottom = 50.0
 theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_fonts/font = ExtResource("2_w4dkq")
 text = "Enter the vortex"
