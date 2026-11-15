@@ -5,10 +5,11 @@
 [ext_resource type="Script" uid="uid://j42s7o4wiqf2" path="res://Scripts/enemy_spawner_2d.gd" id="4_xbus3"]
 [ext_resource type="PackedScene" uid="uid://dcy0vd662yi5h" path="res://Scenes/2d/enemy_2d.tscn" id="5_mo4om"]
 [ext_resource type="PackedScene" path="res://Scenes/2d/stalker_2d.tscn" id="6_jk15y"]
-[ext_resource type="Script" uid="uid://dx5hybylw4ptv" path="res://Scripts/collectible_spawner_2d.gd" id="7_n77aq"]
+[ext_resource type="Script" path="res://Scripts/collectible_spawner_2d.gd" id="7_n77aq"]
 [ext_resource type="PackedScene" path="res://Scenes/2d/collectible_2d.tscn" id="8_7pllr"]
 [ext_resource type="Texture2D" uid="uid://cb3g1k4d5v0pi" path="res://Assets/spaceDarkPurple.png" id="8_771xk"]
 [ext_resource type="Texture2D" uid="uid://cviwtoah1pl3l" path="res://Assets/meteorGrey_big2.png" id="9_ux43p"]
+[ext_resource type="PackedScene" uid="uid://crbjvgr4vyfgf" path="res://Scenes/2d/transition_door_2d.tscn" id="10_hxq5q"]
 
 [sub_resource type="GDScript" id="GDScript_m5e57"]
 script/source = "extends Node2D
@@ -124,3 +125,8 @@ texture = ExtResource("9_ux43p")
 z_index = 4
 shape = SubResource("CircleShape2D_1ws86")
 one_way_collision = true
+
+[node name="TransitionDoor2D" parent="." unique_id=284163760 instance=ExtResource("10_hxq5q")]
+position = Vector2(281, 459)
+scale = Vector2(0.1, 0.1)
+target_scene = "uid://byng6bsq6gocw"

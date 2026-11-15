@@ -6,8 +6,9 @@
 [ext_resource type="PackedScene" path="res://Scenes/2d/stalker_2d.tscn" id="4_stalker"]
 [ext_resource type="PackedScene" path="res://Scenes/2d/collectible_2d.tscn" id="5_collectible"]
 [ext_resource type="Script" uid="uid://j42s7o4wiqf2" path="res://Scripts/enemy_spawner_2d.gd" id="6_enemyspawner"]
-[ext_resource type="Script" uid="uid://dx5hybylw4ptv" path="res://Scripts/collectible_spawner_2d.gd" id="7_collectiblespawner"]
+[ext_resource type="Script" path="res://Scripts/collectible_spawner_2d.gd" id="7_collectiblespawner"]
 [ext_resource type="Script" uid="uid://dii3uy3l62hdy" path="res://Scripts/hud.gd" id="8_hud"]
+[ext_resource type="PackedScene" uid="uid://crbjvgr4vyfgf" path="res://Scenes/2d/transition_door_2d.tscn" id="9_lajfp"]
 
 [sub_resource type="GDScript" id="GDScript_m5e57"]
 script/source = "extends Node2D
@@ -217,3 +218,7 @@ stalker_scene = ExtResource("4_stalker")
 position = Vector2(179, 130)
 script = ExtResource("7_collectiblespawner")
 collectible_scene = ExtResource("5_collectible")
+
+[node name="TransitionDoor2D" parent="." unique_id=284163760 instance=ExtResource("9_lajfp")]
+position = Vector2(972, 1041)
+scale = Vector2(0.2, 0.2)
