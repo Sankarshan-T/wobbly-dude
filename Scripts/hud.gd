@@ -82,7 +82,7 @@ func _build_ui() -> void:
 	add_child(_stalker_label)
 
 	_death_label = Label.new()
-	_death_label.text = "SYSTEM FAILURE"
+	_death_label.text = "You Died"
 	_death_label.add_theme_font_size_override("font_size", 40)
 	_death_label.set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT)
 	_death_label.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
