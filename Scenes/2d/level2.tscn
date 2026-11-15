@@ -127,6 +127,6 @@ shape = SubResource("CircleShape2D_1ws86")
 one_way_collision = true
 
 [node name="TransitionDoor2D" parent="." unique_id=284163760 instance=ExtResource("10_hxq5q")]
-position = Vector2(281, 459)
+position = Vector2(-555, 836)
 scale = Vector2(0.1, 0.1)
 target_scene = "uid://byng6bsq6gocw"

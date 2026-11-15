@@ -4,16 +4,19 @@
 [ext_resource type="Texture2D" uid="uid://bhqiguuoy7rug" path="res://Assets/vortex-2d.png" id="2_tqkxu"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_lln78"]
-size = Vector2(181.66669, 188.88889)
+size = Vector2(103.33334, 104.44444)
 
 [node name="TransitionDoor2D" type="Area2D" unique_id=284163760]
 script = ExtResource("1_lln78")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=151412724]
-position = Vector2(64.5, 54)
+position = Vector2(67, 53)
 scale = Vector2(1.8, 1.8)
 shape = SubResource("RectangleShape2D_lln78")
 
 [node name="Vortex2d" type="Sprite2D" parent="." unique_id=988702930]
 position = Vector2(68, 54.000004)
+scale = Vector2(0.7, 0.7)
 texture = ExtResource("2_tqkxu")
+region_enabled = true
+region_rect = Rect2(0, 0, 332, 335)
