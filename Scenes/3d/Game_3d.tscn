@@ -1,9 +1,10 @@
 [gd_scene format=3 uid="uid://byng6bsq6gocw"]
 
+[ext_resource type="Texture2D" uid="uid://los78qbt8asi" path="res://Assets/skybox-night.png" id="1_bi620"]
 [ext_resource type="PackedScene" uid="uid://bhjiqhea24huf" path="res://Scenes/3d/player_3d.tscn" id="1_j6hnj"]
-[ext_resource type="Texture2D" uid="uid://diwkppbmm40wb" path="res://Assets/skybox-day.png" id="2_tlpjj"]
 [ext_resource type="PackedScene" uid="uid://fiay0bhgdx3y" path="res://Scenes/3d/transition_door_3d.tscn" id="4_2ajlw"]
 [ext_resource type="Texture2D" uid="uid://bxnadcnde2tnl" path="res://Assets/5bd42b344f7de_thumb900.webp" id="4_wnta2"]
+<<<<<<< HEAD
 [ext_resource type="PackedScene" uid="uid://bf1oucvlfvtya" path="res://Ingame-texts/Welcome.tscn" id="6_kfy7m"]
 [ext_resource type="PackedScene" uid="uid://cyuqynwur3c02" path="res://Ingame-texts/Gate1.tscn" id="7_ax3ex"]
 [ext_resource type="PackedScene" uid="uid://dexx1qwkcrod3" path="res://FBX/Bush_Common.fbx" id="8_s4mx3"]
@@ -14,9 +15,19 @@
 [ext_resource type="PackedScene" uid="uid://dl0n1pih7qx3j" path="res://FBX/Flower_3_Group.fbx" id="13_firns"]
 [ext_resource type="PackedScene" uid="uid://bg0fdgv8l7jss" path="res://Scenes/3d/enemy_3d.tscn" id="14_enemy"]
 [ext_resource type="Script" uid="uid://dii3uy3l62hdy" path="res://Scripts/hud.gd" id="15_hud"]
+=======
+[ext_resource type="PackedScene" uid="uid://bf1oucvlfvtya" path="res://Assets/Ingame-texts/Welcome.tscn" id="6_kfy7m"]
+[ext_resource type="PackedScene" uid="uid://cyuqynwur3c02" path="res://Assets/Ingame-texts/Gate1.tscn" id="7_ax3ex"]
+[ext_resource type="PackedScene" uid="uid://dexx1qwkcrod3" path="res://Assets/FBX/Bush_Common.fbx" id="8_s4mx3"]
+[ext_resource type="PackedScene" uid="uid://dyjsnc3sfqdsu" path="res://Assets/FBX/Clover_1.fbx" id="9_us8js"]
+[ext_resource type="PackedScene" uid="uid://dd81cxsyxbnqw" path="res://Assets/FBX/CommonTree_1.fbx" id="10_wnta2"]
+[ext_resource type="PackedScene" uid="uid://bpr48lqv5mkil" path="res://Assets/FBX/DeadTree_2.fbx" id="11_b2oqg"]
+[ext_resource type="PackedScene" uid="uid://cw41ir2mluwf3" path="res://Assets/FBX/Fern_1.fbx" id="12_qi8tj"]
+[ext_resource type="PackedScene" uid="uid://dl0n1pih7qx3j" path="res://Assets/FBX/Flower_3_Group.fbx" id="13_firns"]
+>>>>>>> d098d686ade966ae3432a1944770f10d98422cfc
 
 [sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_ljnko"]
-panorama = ExtResource("2_tlpjj")
+panorama = ExtResource("1_bi620")
 
 [sub_resource type="Sky" id="Sky_4e0x8"]
 sky_material = SubResource("PanoramaSkyMaterial_ljnko")
@@ -126,10 +137,7 @@ normal_texture = SubResource("ImageTexture_wnta2")
 mesh_list = Array[Terrain3DMeshAsset]([SubResource("Terrain3DMeshAsset_pcuiq"), SubResource("Terrain3DMeshAsset_bi620"), SubResource("Terrain3DMeshAsset_b2oqg")])
 texture_list = Array[Terrain3DTextureAsset]([SubResource("Terrain3DTextureAsset_qi8tj")])
 
-[sub_resource type="ViewportTexture" id="ViewportTexture_b2oqg"]
-viewport_path = NodePath("SubViewport")
-
-[sub_resource type="ViewportTexture" id="ViewportTexture_qi8tj"]
+[sub_resource type="ViewportTexture" id="ViewportTexture_bi620"]
 viewport_path = NodePath("SubViewport")
 
 [node name="Game" type="Node3D" unique_id=966537943]
@@ -139,12 +147,13 @@ environment = SubResource("Environment_1ws86")
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=1405641260]
 transform = Transform3D(0.89689636, 0.44224077, 6.589901e-09, -0.08628218, 0.17498653, 0.9807829, 0.43374217, -0.87966067, 0.19510227, 0, 59.907803, 0)
+light_color = Color(0.6028429, 0.6028429, 0.602843, 1)
 
 [node name="Player" parent="." unique_id=1382351726 instance=ExtResource("1_j6hnj")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -11, 21.220257, -16.909542)
 
 [node name="TransitionDoor3D" parent="." unique_id=604576818 instance=ExtResource("4_2ajlw")]
-transform = Transform3D(-0.7917037, 0, 0.6109053, 0, 1, 0, -0.6109053, 0, -0.7917037, 82.72995, 1.5367837, -4.9390106)
+transform = Transform3D(0.44363424, 0, 0.896208, 0, 1, 0, -0.896208, 0, 0.44363424, 82.72995, 2.8073387, -5.631554)
 target_scene = "uid://c0o6ahjwrgc7m"
 
 [node name="Terrain3D" type="Terrain3D" parent="." unique_id=685355297]
@@ -158,68 +167,66 @@ metadata/_edit_lock_ = true
 [node name="Welcome" parent="." unique_id=1593168089 instance=ExtResource("6_kfy7m")]
 transform = Transform3D(10, 0, 0, 0, 10, 0, 0, 0, 10, 59, 23, 1)
 modulate = Color(0, 0, 0, 1)
-texture = SubResource("ViewportTexture_b2oqg")
+texture = SubResource("ViewportTexture_bi620")
 
 [node name="Gate1" parent="." unique_id=1416059304 instance=ExtResource("7_ax3ex")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 84, 0.5, -4.9)
-modulate = Color(0, 0, 0, 1)
-texture = SubResource("ViewportTexture_qi8tj")
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 82.00436, 1.571598, -5.563851)
 
-[node name="Bush_Common" parent="." unique_id=2024407014 instance=ExtResource("8_s4mx3")]
+[node name="Bush_Common" parent="." unique_id=1484145304 instance=ExtResource("8_s4mx3")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5, 15, -6)
 
-[node name="Bush_Common4" parent="." unique_id=1619205180 instance=ExtResource("8_s4mx3")]
+[node name="Bush_Common4" parent="." unique_id=1262096836 instance=ExtResource("8_s4mx3")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 15, -9)
 
-[node name="Bush_Common5" parent="." unique_id=1025934738 instance=ExtResource("8_s4mx3")]
+[node name="Bush_Common5" parent="." unique_id=554601648 instance=ExtResource("8_s4mx3")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 23, 21, -9)
 
-[node name="Bush_Common2" parent="." unique_id=559933940 instance=ExtResource("8_s4mx3")]
+[node name="Bush_Common2" parent="." unique_id=2060041916 instance=ExtResource("8_s4mx3")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 26, 15, -6)
 
-[node name="Bush_Common3" parent="." unique_id=1656800575 instance=ExtResource("8_s4mx3")]
+[node name="Bush_Common3" parent="." unique_id=1765684811 instance=ExtResource("8_s4mx3")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 26, 15, 13)
 
-[node name="Clover_1" parent="." unique_id=727719460 instance=ExtResource("9_us8js")]
+[node name="Clover_1" parent="." unique_id=1748374072 instance=ExtResource("9_us8js")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 31, -24)
 
-[node name="CommonTree_1" parent="." unique_id=1898137534 instance=ExtResource("10_wnta2")]
+[node name="CommonTree_1" parent="." unique_id=261736896 instance=ExtResource("10_wnta2")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7, 19, -4)
 
-[node name="CommonTree_2" parent="." unique_id=108533603 instance=ExtResource("10_wnta2")]
+[node name="CommonTree_2" parent="." unique_id=949627085 instance=ExtResource("10_wnta2")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 26, 21, -4)
 
-[node name="CommonTree_3" parent="." unique_id=1985318035 instance=ExtResource("10_wnta2")]
+[node name="CommonTree_3" parent="." unique_id=1760473161 instance=ExtResource("10_wnta2")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 26, 17, -25)
 
-[node name="CommonTree_4" parent="." unique_id=607728316 instance=ExtResource("10_wnta2")]
+[node name="CommonTree_4" parent="." unique_id=1194913582 instance=ExtResource("10_wnta2")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 44, 15, -14)
 
-[node name="CommonTree_5" parent="." unique_id=1139549220 instance=ExtResource("10_wnta2")]
+[node name="CommonTree_5" parent="." unique_id=1470013369 instance=ExtResource("10_wnta2")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 44, 19, 2)
 
-[node name="CommonTree_6" parent="." unique_id=224455192 instance=ExtResource("10_wnta2")]
+[node name="CommonTree_6" parent="." unique_id=193567659 instance=ExtResource("10_wnta2")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 51, 16, 2)
 
-[node name="CommonTree_7" parent="." unique_id=1165719549 instance=ExtResource("10_wnta2")]
+[node name="CommonTree_7" parent="." unique_id=1797436991 instance=ExtResource("10_wnta2")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 57, 10, -17)
 
-[node name="DeadTree_2" parent="." unique_id=359866293 instance=ExtResource("11_b2oqg")]
+[node name="DeadTree_2" parent="." unique_id=1250192491 instance=ExtResource("11_b2oqg")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 84, 0, -2)
 
-[node name="DeadTree_3" parent="." unique_id=1181087083 instance=ExtResource("11_b2oqg")]
+[node name="DeadTree_3" parent="." unique_id=940495768 instance=ExtResource("11_b2oqg")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 95, 0, -6)
 
-[node name="Fern_1" parent="." unique_id=427110226 instance=ExtResource("12_qi8tj")]
+[node name="Fern_1" parent="." unique_id=603613221 instance=ExtResource("12_qi8tj")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 27, 18, -15)
 
-[node name="Flower_3_Group" parent="." unique_id=1331821048 instance=ExtResource("13_firns")]
+[node name="Flower_3_Group" parent="." unique_id=2080496417 instance=ExtResource("13_firns")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9, 16, -17)
 
-[node name="Flower_3_Group2" parent="." unique_id=779333728 instance=ExtResource("13_firns")]
+[node name="Flower_3_Group2" parent="." unique_id=1500240246 instance=ExtResource("13_firns")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9, 18, -9)
 
-[node name="Flower_3_Group3" parent="." unique_id=184005943 instance=ExtResource("13_firns")]
+[node name="Flower_3_Group3" parent="." unique_id=1710858397 instance=ExtResource("13_firns")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 19, 18, -9)
 
 [node name="Enemy3D" parent="." unique_id=1442021919 instance=ExtResource("14_enemy")]
