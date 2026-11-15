@@ -1,12 +1,20 @@
-[gd_scene format=3]
+[gd_scene format=3 uid="uid://dcy0vd662yi5h"]
 
-[ext_resource type="Script" path="res://Scripts/enemy_2d.gd" id="1_enemy"]
+[ext_resource type="Script" uid="uid://cafxri8usk2r2" path="res://Scripts/enemy_2d.gd" id="1_enemy"]
 [ext_resource type="Texture2D" uid="uid://yjlqixd43n45" path="res://Assets/Robot/drone_shadow.png" id="2_shadow"]
 [ext_resource type="Texture2D" uid="uid://es66e4eqwgx4" path="res://Assets/Robot/mine_drone_activated.png" id="3_active"]
 [ext_resource type="Texture2D" uid="uid://bqbuyk12ogptm" path="res://Assets/Robot/mine_drone_idle.png" id="4_idle"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_enemy"]
 radius = 7.0
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_active_0"]
+atlas = ExtResource("3_active")
+region = Rect2(0, 0, 16, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_active_1"]
+atlas = ExtResource("3_active")
+region = Rect2(16, 0, 16, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_idle_0"]
 atlas = ExtResource("4_idle")
@@ -20,14 +28,6 @@ region = Rect2(16, 0, 16, 32)
 atlas = ExtResource("4_idle")
 region = Rect2(32, 0, 16, 32)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_active_0"]
-atlas = ExtResource("3_active")
-region = Rect2(0, 0, 16, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_active_1"]
-atlas = ExtResource("3_active")
-region = Rect2(16, 0, 16, 32)
-
 [sub_resource type="SpriteFrames" id="SpriteFrames_enemy"]
 animations = [{
 "frames": [{
@@ -37,7 +37,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_active_1")
 }],
-"loop": true,
+"loop": 1,
 "name": &"active",
 "speed": 6.0
 }, {
@@ -51,7 +51,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_idle_2")
 }],
-"loop": true,
+"loop": 1,
 "name": &"idle",
 "speed": 5.0
 }]
@@ -70,27 +70,28 @@ corner_radius_top_right = 2
 corner_radius_bottom_right = 2
 corner_radius_bottom_left = 2
 
-[node name="Enemy2d" type="CharacterBody2D"]
+[node name="Enemy2d" type="CharacterBody2D" unique_id=562162818]
 script = ExtResource("1_enemy")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=2017032076]
 position = Vector2(0, -5)
 scale = Vector2(3, 3)
 shape = SubResource("CircleShape2D_enemy")
 
-[node name="shadow" type="Sprite2D" parent="."]
+[node name="shadow" type="Sprite2D" parent="." unique_id=897963686]
 position = Vector2(0, 6)
 scale = Vector2(3, 3)
 texture = ExtResource("2_shadow")
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=536003196]
+modulate = Color(4.813075e-06, 0.75463796, 0.73880684, 1)
 texture_filter = 1
 scale = Vector2(3, 3)
 sprite_frames = SubResource("SpriteFrames_enemy")
 animation = &"idle"
 autoplay = "idle"
 
-[node name="HealthBar" type="ProgressBar" parent="."]
+[node name="HealthBar" type="ProgressBar" parent="." unique_id=105008013]
 offset_left = -18.0
 offset_top = -62.0
 offset_right = 18.0

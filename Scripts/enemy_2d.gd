@@ -19,11 +19,14 @@ enum State { PATROL, CHASE, DEAD }
 
 @export_group("Combat")
 @export var contact_damage: int = 10
-@export var attack_range: float = 20.0
+## Must be larger than the sum of the two collision radius cuz the enemy wont be able to hit 
+@export var attack_range: float = 48.0
 @export var attack_cooldown: float = 0.9
 @export var knockback_force: float = 260.0
 @export var knockback_decay: float = 9.0
 @export var stun_time: float = 0.18
+## How long the enemy keeps travelling after bouncing off a wall.
+@export var wall_bounce_time: float = 0.4
 
 @export_group("Detection")
 @export var detect_radius: float = 200.0
@@ -38,7 +41,7 @@ enum State { PATROL, CHASE, DEAD }
 
 @export_group("Rewards")
 @export var collectibles_on_death: int = 1
-@export var completion_flag_on_death: String = ""
+@export var completion_flag_on_death: String = "wow killed me!"
 
 @export_group("Visuals")
 @export var tint: Color = Color(1.0, 0.55, 0.55)
@@ -61,6 +64,9 @@ var _stun_timer: float = 0.0
 var _knockback: Vector2 = Vector2.ZERO
 var _bob_time: float = 0.0
 var _sprite_start: Vector2 = Vector2.ZERO
+var _bounce_dir: Vector2 = Vector2.ZERO
+var _bounce_timer: float = 0.0
+var _intended: Vector2 = Vector2.ZERO
 
 
 func _ready() -> void:
@@ -84,6 +90,7 @@ func _physics_process(delta: float) -> void:
 
 	_attack_timer = maxf(_attack_timer - delta, 0.0)
 	_stun_timer = maxf(_stun_timer - delta, 0.0)
+	_bounce_timer = maxf(_bounce_timer - delta, 0.0)
 	_bob_time += delta * bob_speed
 
 	_resolve_player()
@@ -122,10 +129,21 @@ func _physics_process(delta: float) -> void:
 					state = State.PATROL
 					_pick_patrol_target()
 
+	# a bounce off a wall temporarily overrides steering so the drone visibly
+	# deflects instead of grinding against the wall
+	if _bounce_timer > 0.0 and _bounce_dir != Vector2.ZERO:
+		var bounce_speed := chase_speed if state == State.CHASE else move_speed
+		desired = _bounce_dir * bounce_speed
+
+	_intended = desired + _knockback
+	if _intended.length_squared() > 0.0001:
+		_intended = _intended.normalized()
+
 	velocity = desired + _knockback
 	_knockback = _knockback.lerp(Vector2.ZERO, 1.0 - exp(-knockback_decay * delta))
 
 	move_and_slide()
+	_apply_wall_bounce()
 	_update_facing()
 	_update_bob()
 	_update_animation()
@@ -170,6 +188,31 @@ func _try_contact_attack() -> void:
 func _update_facing() -> void:
 	if absf(velocity.x) > 1.0:
 		sprite.flip_h = velocity.x < 0.0
+
+
+## Reflect the drone's movement off level walls so it bounces instead of
+## sticking. Only static geometry counts; the player and other drones are
+## ignored so combat still behaves normally.
+func _apply_wall_bounce() -> void:
+	for i in get_slide_collision_count():
+		var collision := get_slide_collision(i)
+		var collider := collision.get_collider()
+		if not (collider is TileMapLayer or collider is StaticBody2D):
+			continue
+
+		var normal := collision.get_normal()
+		if normal.length_squared() < 0.0001:
+			continue
+
+		var incoming := _intended
+		if incoming.length_squared() < 0.0001:
+			incoming = -normal
+
+		_bounce_dir = incoming.bounce(normal).normalized()
+		if _bounce_dir.length_squared() < 0.0001:
+			_bounce_dir = normal
+		_bounce_timer = wall_bounce_time
+		break
 
 
 func _update_bob() -> void:
