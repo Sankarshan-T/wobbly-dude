@@ -1,5 +1,9 @@
 [gd_scene format=3 uid="uid://c6aw1gi43scj8"]
 
+[ext_resource type="Script" uid="uid://btudpypedhs0c" path="res://Scripts/main_menu.gd" id="1_1ehe0"]
+[ext_resource type="Texture2D" uid="uid://los78qbt8asi" path="res://Assets/skybox-night.png" id="1_48xlc"]
+[ext_resource type="FontFile" uid="uid://dg6f8c0e12t04" path="res://Assets/Dimbo Regular.ttf" id="2_1ehe0"]
+
 [node name="MainMenu" type="Control" unique_id=307779659]
 layout_mode = 3
 anchors_preset = 15
@@ -7,3 +11,50 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_1ehe0")
+
+[node name="SkyboxNight" type="Sprite2D" parent="." unique_id=77877483]
+position = Vector2(493, 329)
+scale = Vector2(0.44580078, 0.44580078)
+texture = ExtResource("1_48xlc")
+
+[node name="Label" type="Label" parent="." unique_id=606828700]
+layout_mode = 0
+offset_top = 87.0
+offset_right = 1146.0
+offset_bottom = 286.0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 50
+theme_override_constants/shadow_outline_size = 3
+theme_override_fonts/font = ExtResource("2_1ehe0")
+theme_override_font_sizes/font_size = 128
+text = "Bounce through Time"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Play" type="TextureButton" parent="." unique_id=1692097865]
+layout_mode = 0
+offset_left = 447.0
+offset_top = 319.0
+offset_right = 710.0
+offset_bottom = 555.0
+
+[node name="Label" type="Label" parent="Play" unique_id=418307906]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -153.0
+offset_right = 153.0
+offset_bottom = 153.0
+grow_horizontal = 2
+theme_override_colors/font_color = Color(0.67076945, 0.99999994, 0.9965914, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 32
+theme_override_fonts/font = ExtResource("2_1ehe0")
+theme_override_font_sizes/font_size = 128
+text = "Play!"
+horizontal_alignment = 1
+
+[connection signal="pressed" from="Play" to="." method="_on_play_pressed"]

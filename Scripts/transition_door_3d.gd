@@ -1,6 +1,12 @@
 class_name TransitionDoor3D
 extends Area3D
 
+@export_group("Portal Text")
+@export var portal_text: String = "Enter"
+@export var show_portal_text: bool = true
+
+@onready var portal_label: Label3D = $Label3D
+
 @export_file("*.tscn") var target_scene: String = ""
 @export var required_flag: String = ""
 
@@ -14,6 +20,12 @@ var is_open: bool = false
 
 func _ready() -> void:
 	body_entered.connect(_on_body_entered)
+
+	portal_label.text = portal_text
+	portal_label.visible = show_portal_text
+
+	portal_label.billboard = BaseMaterial3D.BILLBOARD_ENABLED
+
 	_update_lock_status()
 
 

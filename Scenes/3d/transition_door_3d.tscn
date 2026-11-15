@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://cgcjybov4kfh" path="res://Scripts/transition_door_3d.gd" id="1_vxfqo"]
 [ext_resource type="Shader" uid="uid://b5f81kk5qi6y" path="res://Assets/transition_door_3d.gdshader" id="2_fpef5"]
+[ext_resource type="FontFile" uid="uid://dg6f8c0e12t04" path="res://Assets/Dimbo Regular.ttf" id="3_16ru6"]
 
 [sub_resource type="Animation" id="Animation_ag2wg"]
 resource_name = "close"
@@ -65,6 +66,7 @@ data = PackedVector3Array(1, -1, 0, -1, -1, 0, 1, 1, 0, -1, -1, 0, -1, 1, 0, 1, 
 
 [node name="TransitionDoor3D" type="Area3D" unique_id=604576818]
 script = ExtResource("1_vxfqo")
+show_portal_text = false
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1396459294]
 libraries/ = SubResource("AnimationLibrary_bdv8o")
@@ -79,3 +81,9 @@ surface_material_override/0 = SubResource("ShaderMaterial_16ru6")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=67965453]
 transform = Transform3D(-4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0, 0, 1, 0, 0, 0)
 shape = SubResource("ConcavePolygonShape3D_fpef5")
+
+[node name="Label3D" type="Label3D" parent="." unique_id=1654867186]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.2753843, 0)
+font = ExtResource("3_16ru6")
+font_size = 128
+outline_size = 20

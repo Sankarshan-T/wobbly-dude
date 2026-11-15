@@ -6,10 +6,6 @@
 [sub_resource type="ViewportTexture" id="ViewportTexture_vfa6w"]
 viewport_path = NodePath("SubViewport")
 
-[sub_resource type="LabelSettings" id="LabelSettings_fs47j"]
-font = ExtResource("2_w4dkq")
-font_size = 41
-
 [node name="Gate1" type="Sprite3D" unique_id=1593168089]
 billboard = 1
 texture = SubResource("ViewportTexture_vfa6w")
@@ -26,4 +22,3 @@ offset_bottom = 50.0
 theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_fonts/font = ExtResource("2_w4dkq")
 text = "Enter the vortex"
-label_settings = SubResource("LabelSettings_fs47j")
