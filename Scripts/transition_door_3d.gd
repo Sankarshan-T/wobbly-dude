@@ -53,4 +53,6 @@ func _on_body_entered(body: Node3D) -> void:
 		triggered = true
 		Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
 		body.set_physics_process(false)
+		# the pursuer follows the player through the gate
+		GameState.activate_stalker()
 		SceneManager.change_scene(target_scene)

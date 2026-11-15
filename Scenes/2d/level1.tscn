@@ -2,6 +2,12 @@
 
 [ext_resource type="PackedScene" uid="uid://bco8r3no071ru" path="res://Scenes/2d/player_2d.tscn" id="1_88nqe"]
 [ext_resource type="Texture2D" uid="uid://c4lku7padj4oe" path="res://Assets/towerDefense.png" id="2_rexck"]
+[ext_resource type="PackedScene" path="res://Scenes/2d/enemy_2d.tscn" id="3_enemy"]
+[ext_resource type="PackedScene" path="res://Scenes/2d/stalker_2d.tscn" id="4_stalker"]
+[ext_resource type="PackedScene" path="res://Scenes/2d/collectible_2d.tscn" id="5_collectible"]
+[ext_resource type="Script" path="res://Scripts/enemy_spawner_2d.gd" id="6_enemyspawner"]
+[ext_resource type="Script" path="res://Scripts/collectible_spawner_2d.gd" id="7_collectiblespawner"]
+[ext_resource type="Script" path="res://Scripts/hud.gd" id="8_hud"]
 
 [sub_resource type="GDScript" id="GDScript_m5e57"]
 script/source = "extends Node2D
@@ -196,3 +202,21 @@ tile_set = SubResource("TileSet_nk8me")
 
 [node name="Player2d" parent="." unique_id=958581137 instance=ExtResource("1_88nqe")]
 position = Vector2(179, 130)
+
+[node name="HUD" type="CanvasLayer" parent="."]
+script = ExtResource("8_hud")
+
+[node name="EnemySpawner" type="Node2D" parent="."]
+position = Vector2(179, 130)
+script = ExtResource("6_enemyspawner")
+enemy_scene = ExtResource("3_enemy")
+spawn_count = 5
+spawn_radius = 460.0
+stalker_scene = ExtResource("4_stalker")
+
+[node name="CollectibleSpawner" type="Node2D" parent="."]
+position = Vector2(179, 130)
+script = ExtResource("7_collectiblespawner")
+collectible_scene = ExtResource("5_collectible")
+spawn_count = 12
+spawn_radius = 560.0

@@ -1,0 +1,101 @@
+[gd_scene format=3]
+
+[ext_resource type="Script" path="res://Scripts/enemy_2d.gd" id="1_enemy"]
+[ext_resource type="Texture2D" uid="uid://yjlqixd43n45" path="res://Assets/Robot/drone_shadow.png" id="2_shadow"]
+[ext_resource type="Texture2D" uid="uid://es66e4eqwgx4" path="res://Assets/Robot/mine_drone_activated.png" id="3_active"]
+[ext_resource type="Texture2D" uid="uid://bqbuyk12ogptm" path="res://Assets/Robot/mine_drone_idle.png" id="4_idle"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_enemy"]
+radius = 7.0
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_idle_0"]
+atlas = ExtResource("4_idle")
+region = Rect2(0, 0, 16, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_idle_1"]
+atlas = ExtResource("4_idle")
+region = Rect2(16, 0, 16, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_idle_2"]
+atlas = ExtResource("4_idle")
+region = Rect2(32, 0, 16, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_active_0"]
+atlas = ExtResource("3_active")
+region = Rect2(0, 0, 16, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_active_1"]
+atlas = ExtResource("3_active")
+region = Rect2(16, 0, 16, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_enemy"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_active_0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_active_1")
+}],
+"loop": true,
+"name": &"active",
+"speed": 6.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_idle_0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_idle_1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_idle_2")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_health_bg"]
+bg_color = Color(0.08, 0.08, 0.1, 0.8)
+corner_radius_top_left = 2
+corner_radius_top_right = 2
+corner_radius_bottom_right = 2
+corner_radius_bottom_left = 2
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_health_fill"]
+bg_color = Color(0.92, 0.28, 0.28, 1)
+corner_radius_top_left = 2
+corner_radius_top_right = 2
+corner_radius_bottom_right = 2
+corner_radius_bottom_left = 2
+
+[node name="Enemy2d" type="CharacterBody2D"]
+script = ExtResource("1_enemy")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -5)
+scale = Vector2(3, 3)
+shape = SubResource("CircleShape2D_enemy")
+
+[node name="shadow" type="Sprite2D" parent="."]
+position = Vector2(0, 6)
+scale = Vector2(3, 3)
+texture = ExtResource("2_shadow")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+texture_filter = 1
+scale = Vector2(3, 3)
+sprite_frames = SubResource("SpriteFrames_enemy")
+animation = &"idle"
+autoplay = "idle"
+
+[node name="HealthBar" type="ProgressBar" parent="."]
+offset_left = -18.0
+offset_top = -62.0
+offset_right = 18.0
+offset_bottom = -57.0
+theme_override_styles/background = SubResource("StyleBoxFlat_health_bg")
+theme_override_styles/fill = SubResource("StyleBoxFlat_health_fill")
+value = 100.0
+show_percentage = false

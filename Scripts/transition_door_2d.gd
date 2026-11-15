@@ -57,4 +57,6 @@ func _on_body_entered(body: Node2D) -> void:
 		if completion_flag != "":
 			GameState.set_flag(completion_flag, true)
 
+		# the pursuer follows the player through the gate
+		GameState.activate_stalker()
 		SceneManager.change_scene(target_scene)
