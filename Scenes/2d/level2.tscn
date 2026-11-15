@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://cicne6dftw3fn"]
 
 [ext_resource type="PackedScene" uid="uid://bco8r3no071ru" path="res://Scenes/2d/player_2d.tscn" id="2_ux43p"]
-[ext_resource type="Script" path="res://Scripts/hud.gd" id="3_hxq5q"]
+[ext_resource type="Script" uid="uid://dii3uy3l62hdy" path="res://Scripts/hud.gd" id="3_hxq5q"]
 [ext_resource type="Script" uid="uid://j42s7o4wiqf2" path="res://Scripts/enemy_spawner_2d.gd" id="4_xbus3"]
 [ext_resource type="PackedScene" uid="uid://dcy0vd662yi5h" path="res://Scenes/2d/enemy_2d.tscn" id="5_mo4om"]
 [ext_resource type="PackedScene" path="res://Scenes/2d/stalker_2d.tscn" id="6_jk15y"]
